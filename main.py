@@ -8,7 +8,9 @@ app.config['SECRET_KEY'] = 'tamaalgasdfasd;fajsdfkljasdfkljasdf'
 socketio = SocketIO(app, async_mode='gevent')
 @app.route("/")
 def home():
-    return "hi"
+    templateData = {
+        }
+    return render_template('home.html', **templateData)
 @app.errorhandler(404)
 def page_not_found(error):
     return redirect(url_for('home'))
