@@ -9,3 +9,8 @@ function fullscreen(element) {
     element.msRequestFullscreen();
   }
 }
+/*$(document).ready(function(){
+    if(window.location.protocol != "https:"){
+    	window.location.href = "https://"+window.location.hostname +":"+window.location.port + "/";
+    }
+});*/
