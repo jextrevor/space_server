@@ -4,7 +4,7 @@ import os
 from gevent import monkey
 monkey.patch_all()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'tamaalgasdfasd;fajsdfkljasdfkljasdf'
+app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
 socketio = SocketIO(app, async_mode='gevent')
 @app.route("/")
 def home():
