@@ -15,6 +15,16 @@
 .row{
 	width:100%;
 }
+@keyframes pulse {
+    0% {opacity:0.5;}
+    60% {opacity:1;}
+    100% {opacity:0.3;}
+}
+.pulse{
+	animation-name: pulse;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+}
 button{
 	background: #4cd8ff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #4cd8ff 0%, #0093b5 100%); /* FF3.6-15 */
@@ -33,7 +43,7 @@ button:hover{
 	background: -webkit-linear-gradient(top,  #7fe3ff 0%,#2398b2 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #7fe3ff 0%,#2398b2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fe3ff', endColorstr='#2398b2',GradientType=0 ); /* IE6-9 */
-
+	box-shadow: 0px 0px 70px rgba(127,227,255,0.3);
 }
 button:active{
 	background: #0093b5; /* Old browsers */
@@ -41,7 +51,7 @@ button:active{
 	background: -webkit-linear-gradient(top,  #0093b5 0%,#4cd8ff 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #0093b5 0%,#4cd8ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0093b5', endColorstr='#4cd8ff',GradientType=0 ); /* IE6-9 */
-
+	box-shadow: 0px 0px 70px rgba(127,227,255,0.3);
 }
 .col1{
 	margin-right:0px;
@@ -99,9 +109,10 @@ html, body, html *{
 	font-size:24px;
 	text-align:justify;
 	color:#0000AA;
-	text-shadow: 0px 0px 40px rgba(0,0,255,1);
+	
 }
 .main h1{
+	text-shadow: 0px 0px 40px rgba(0,0,255,1);
 	font-size:70px;
 	text-align:center;
 }
