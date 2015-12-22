@@ -20,10 +20,22 @@
     60% {opacity:1;}
     100% {opacity:0.3;}
 }
+@keyframes fadein {
+    0% {opacity:0;}
+    80% {opacity:0;}
+    100% {opacity:1;}
+}
 .pulse{
 	animation-name: pulse;
     animation-duration: 0.6s;
     animation-iteration-count: infinite;
+}
+.fadein{
+	animation-name: fadein;
+	animation-duration: 10s;
+}
+#connecting{
+	text-align:center;
 }
 button{
 	background: #4cd8ff; /* Old browsers */
@@ -95,6 +107,8 @@ html, body, html *{
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	cursor: url(cursor.cur),default;
+	user-drag: none; 
+	-webkit-user-drag: none;
 }
 @font-face {
     font-family: main;

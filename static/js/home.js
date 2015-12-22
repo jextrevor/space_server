@@ -1,3 +1,4 @@
+var socket;
 function fullscreen(element) {
   if(element.requestFullscreen) {
     element.requestFullscreen();
@@ -15,8 +16,11 @@ function fullscreen(element) {
     }
 });*/
 $(document).ready(function(){
-var socket = io.connect(window.location.protocol+'//' + document.domain + ':' + location.port + '/main');
+socket = io.connect(window.location.protocol+'//' + document.domain + ':' + location.port + '/main');
 socket.on('connect', function() {
         document.getElementById("connecting").style.display = "none";
     });
+socket.on('disconnect', function(){
+document.getElementById("connecting").style.display = "block";
+});
 });
