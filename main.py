@@ -1,11 +1,11 @@
 from flask import Flask,render_template, redirect, url_for
 from flask_socketio import SocketIO
 import os
-from gevent import monkey
-monkey.patch_all()
+import eventlet
+eventlet.monkey_patch()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
-socketio = SocketIO(app, async_mode='gevent')
+socketio = SocketIO(app, async_mode='eventlet')
 @socketio.on('connect', namespace='/test')
 def connect():
     pass

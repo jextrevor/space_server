@@ -16,11 +16,21 @@ function fullscreen(element) {
     }
 });*/
 $(document).ready(function(){
-socket = io.connect(window.location.protocol+'//' + document.domain + ':' + location.port + '/main');
+socket = io.connect(window.location.protocol+'//' + document.domain + ':' + location.port + '/main',{
+    'reconnection': true,
+    'reconnectionDelay': 1000,
+    'reconnectionDelayMax' : 1000
+});
 socket.on('connect', function() {
         document.getElementById("connecting").style.display = "none";
     });
 socket.on('disconnect', function(){
 document.getElementById("connecting").style.display = "block";
+});
+socket.on('error', function(object){
+alert(object);
+});
+socket.on('reconnect', function(object){
+alert(object);
 });
 });
