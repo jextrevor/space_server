@@ -6,6 +6,9 @@ monkey.patch_all()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
 socketio = SocketIO(app, async_mode='gevent')
+@socketio.on('connect', namespace='/test')
+def connect():
+    pass
 @app.route("/")
 def home():
     templateData = {

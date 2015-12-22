@@ -14,3 +14,9 @@ function fullscreen(element) {
     	window.location.href = "https://"+window.location.hostname +":"+window.location.port + "/";
     }
 });*/
+$(document).ready(function(){
+var socket = io.connect(window.location.protocol+'//' + document.domain + ':' + location.port + '/main');
+socket.on('connect', function() {
+        document.getElementById("connecting").style.display = "none";
+    });
+});
