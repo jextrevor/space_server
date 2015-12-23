@@ -4,15 +4,15 @@ class Module:
         self.refs = {}
         self.uses = {}
         self.rems = {}
-    def onconnect(self,name):
+    def onattach(self,name):
         pass
-    def connect(self,module,name):
+    def attach(self,module,name):
         #Initialize the module under the given name.
         self.refs[name] = module
         self.uses[name] = 0
         self.rems[name] = False
-        self.onconnect(name)
-    def check(self,name):
+        self.onattach(name)
+    def checkout(self,name):
         #Check to see if the module even exists.
         if name not in self.rems:
             #If it doesn't, return False
@@ -22,14 +22,14 @@ class Module:
             #If so, return False.
             return False
         #Increment the "uses" counter. 
-        self.uses[name]++
+        self.uses[name] += 1
         return self.refs[name]
-    def return(self,name):
+    def checkin(self,name):
         #Decrement the "uses" counter.
-        self.uses[name]--
-    def ondisconnect(self,name):
+        self.uses[name] -= 1
+    def ondetach(self,name):
         pass
-    def disconnect(self,name):
+    def detach(self,name):
         #Let others know that the module is about to be removed.
         self.rems[name] = True
         #Wait until the module is no longer in use.
@@ -39,7 +39,7 @@ class Module:
         del self.refs[name]
         del self.uses[name]
         del self.rems[name]
-        self.ondisconnect(name)
+        self.ondetach(name)
     def run(self):
         while True:
             pass

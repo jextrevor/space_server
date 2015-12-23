@@ -2,13 +2,19 @@ from flask import Flask,render_template, redirect, url_for
 from flask_socketio import SocketIO
 import os
 import eventlet
+from module import Module
+from modules.socket import SocketModule
 eventlet.monkey_patch()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
 socketio = SocketIO(app, async_mode='eventlet')
+mainsocket = SocketModule(socketio,'/main')
 @socketio.on('connect', namespace='/main')
 def connect():
     pass
+@socketio.on_error('/main') # handles the '/chat' namespace
+def error(e):
+    print e
 @app.route("/")
 def home():
     templateData = {

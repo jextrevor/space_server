@@ -25,6 +25,10 @@
     80% {opacity:0;}
     100% {opacity:1;}
 }
+@keyframes fadefast {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
 .pulse{
 	animation-name: pulse;
     animation-duration: 0.6s;
@@ -34,7 +38,11 @@
 	animation-name: fadein;
 	animation-duration: 10s;
 }
-#connecting{
+.fadefast{
+	animation-name: fadefast;
+	animation-duration:2s;
+}
+#connecting, #reconnecting{
 	text-align:center;
 }
 button{
@@ -94,6 +102,9 @@ button:active{
 	font-size:24px;
 	font-variant:small-caps;
 	text-shadow: 0px 0px 10px rgba(255,0,0,0.75);
+}
+.red{
+	color:#EE0000;
 }
 html, body{
 	background-color:#000000;

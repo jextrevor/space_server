@@ -23,14 +23,17 @@ socket = io.connect(window.location.protocol+'//' + document.domain + ':' + loca
 });
 socket.on('connect', function() {
         document.getElementById("connecting").style.display = "none";
+        document.getElementById("reconnecting").style.display = "none";
+        document.getElementById("stations").style.display = "block";
     });
 socket.on('disconnect', function(){
-document.getElementById("connecting").style.display = "block";
+  document.getElementById("stations").style.display = "none";
+document.getElementById("reconnecting").style.display = "block";
 });
 socket.on('error', function(object){
-alert(object);
+
 });
 socket.on('reconnect', function(object){
-alert(object);
+
 });
 });
