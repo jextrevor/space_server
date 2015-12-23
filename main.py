@@ -6,7 +6,7 @@ eventlet.monkey_patch()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
 socketio = SocketIO(app, async_mode='eventlet')
-@socketio.on('connect', namespace='/test')
+@socketio.on('connect', namespace='/main')
 def connect():
     pass
 @app.route("/")
