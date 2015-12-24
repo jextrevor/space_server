@@ -1,17 +1,21 @@
 from flask import Flask,render_template, redirect, url_for
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 import os
 import eventlet
+from gevent import monkey
 from module import Module
-from modules.socket import SocketModule
+monkey.patch_all()
 eventlet.monkey_patch()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamalaygaolaotaykhap'
 socketio = SocketIO(app, async_mode='eventlet')
-mainsocket = SocketModule(socketio,'/main')
 @socketio.on('connect', namespace='/main')
 def connect():
-    pass
+    emit("connected","connected", broadcast=True)
+@socketio.on("ping", namespace="/main")
+def ping(data):
+    if data == "ping":
+        emit("ping","hi")
 @socketio.on_error('/main') # handles the '/chat' namespace
 def error(e):
     print e
